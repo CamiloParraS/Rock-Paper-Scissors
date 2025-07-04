@@ -1,18 +1,20 @@
 // app.js
-// A ROCK-PAPER-SCISSORS game played in te console
+// A ROCK-PAPER-SCISSORS game played in the console
 
-// === Global Variables ===
+// ========== GLOBAL VARIABLES ==========
 let computerScore = 0;
 let humanScore = 0;
 
-// === Functions ===
+// ========== FUNCTIONS ==========
 
-// The Logic Behind the computer choice
+// Generates a random choice for the computer
 
 function getComputerChoice() {
   let computerChoice;
+  // Generate a random number between 1 and 3
   let randomNumber = Math.floor(Math.random() * 3) + 1;
   switch (randomNumber) {
+    // assign a choice based on the random number
     case 1:
       computerChoice = "Rock";
       break;
@@ -26,14 +28,14 @@ function getComputerChoice() {
   return computerChoice;
 }
 
-getComputerChoice();
-
-// Logic behind the Human choice
+// Prompts the user to enter their choice
 
 function getHumanChoice() {
   let humanChoice;
+  // Prompt the user for input
   let sign = prompt("Choose: 1 for Rock, 2 for Paper, 3 for Scissors");
 
+  // Convert the user's numeric input into the corresponding Rock, Paper, or Scissors choice
   switch (sign) {
     case "1":
       humanChoice = "Rock";
@@ -49,6 +51,7 @@ function getHumanChoice() {
   return humanChoice;
 }
 
+// Plays a Round of paper rock scissors,compares the result and updates the Scores
 function playRound() {
   let computerSelection = getComputerChoice();
   let humanSelection = getHumanChoice();
@@ -98,15 +101,21 @@ function playRound() {
       computerScore++;
     }
   }
+  console.log("----------------------------------------------------");
 }
 
-// Write the logic to play the entire Game for 5 times
-
+// Plays a game round 5 times, calculates whowon after 5 rounds, and declares a final winner
 function playGame() {
   let winner;
+  console.log("Starting a new game of Rock, Paper, Scissors!");
+  console.log("---------------------------------");
+
+  // play 5 rounds of the game
   for (let i = 0; i < 5; ++i) {
     playRound();
   }
+
+  // Determines the winner after playing the game for 5 rounds
   if (humanScore > computerScore) {
     winner = "Human Won";
   } else if (computerScore > humanScore) {
@@ -114,9 +123,11 @@ function playGame() {
   } else {
     winner = "A TIE";
   }
-  console.log(`And the result is: ${winner}
-    Human Score: ${humanScore}
-    Computer Score: ${computerScore}`);
+  // Shows the final Results
+  console.log("--- GAME OVER ---");
+  console.log(`Final Result: ${winner}`);
+  console.log(`Final Score -> You: ${humanScore} | Computer: ${computerScore}`);
 }
 
+// starts the game when the page is loaded
 playGame();
