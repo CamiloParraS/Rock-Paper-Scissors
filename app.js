@@ -89,9 +89,23 @@ function playRound(computerChoice, humanChoice) {
     The current round is: ${round}`);
 }
 
-const computerSelection = getComputerChoice();
-const humanSelection = getHumanChoice();
+// Write the logic to play the entire Game
 
-playRound(computerSelection, humanSelection);
-
-
+function playGame() {
+  for (let i = 0; i < 5; i++) {
+    let computerSelection = getComputerChoice();
+    let humanSelection = getHumanChoice();
+    playRound(computerSelection, humanSelection);
+  }
+  const checkWinner = (humanScore, computerScore) => {
+    let winner;
+    if (humanScore > computerScore) {
+      winner = "Human";
+    } else if (computerScore > humanScore) {
+      winner = "Computer";
+    } else {
+      winner = "TIE";
+    }
+    return winner;
+  };
+}
