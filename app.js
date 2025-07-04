@@ -24,7 +24,7 @@ function getComputerChoice() {
 
 getComputerChoice();
 
-// Logic behind the Humna choice
+// Logic behind the Human choice
 
 function getHumanChoice() {
   let humanChoice;
@@ -44,7 +44,6 @@ function getHumanChoice() {
   console.log(`Human choice: ${humanChoice}`);
   return humanChoice;
 }
-getHumanChoice();
 
 function playRound(computerChoice, humanChoice) {
   round++;
@@ -52,17 +51,42 @@ function playRound(computerChoice, humanChoice) {
     if (computerChoice === "Rock") {
       console.log("It's a Tie!");
     } else if (computerChoice === "Scissors") {
-      console.log(`You won!!`);
+      console.log(`You Won!!`);
       playerScore++;
     } else {
       console.log("You Lose!!");
       computerScore++;
     }
   }
-  if (humanChoice === "") {
+  if (humanChoice === "Paper") {
+    if (computerChoice === "Paper") {
+      console.log("It's a Tie!");
+    } else if (computerChoice === "Rock") {
+      console.log("You Won!!");
+      playerScore++;
+    } else {
+      console.log("You Lose!!");
+      computerScore++;
+    }
   }
-  if (computerChoice === "") {
+  if (humanChoice === "Scissors") {
+    if (computerChoice === "Scissors") {
+      console.log("It's a Tie!");
+    } else if (computerChoice === "Paper") {
+      console.log("You Won!!");
+      playerScore++;
+    } else {
+      console.log();
+      computerScore++;
+    }
   }
+  console.log(`
+    You selected: ${humanChoice}
+    The Computer Chose: ${computerChoice}
+    The scores are: 
+        Human: ${humanScore}
+        Computer: ${computerScore}
+    The current round is: ${round}`);
 }
 
 const computerSelection = getComputerChoice();
