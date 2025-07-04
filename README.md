@@ -1,2 +1,3 @@
 # Rock-Paper-Scissors
-The Odin Project - JavaScript Foundations 
+
+The Odin Project - JavaScript Foundations
