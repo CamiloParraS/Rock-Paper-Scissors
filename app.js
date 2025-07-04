@@ -52,26 +52,46 @@ function playRound() {
   if (humanSelection === "Rock") {
     if (computerSelection === "Rock") {
       console.log(`A TIE both of you chose ${humanSelection}`);
+    } else if (computerSelection === "Scissors") {
+      console.log(
+        `You WON!!, the computer chose ${computerSelection} and you ${humanSelection}`
+      );
+      humanScore++;
+    } else {
+      console.log(
+        `You lost, the computer chose ${computerSelection} and you ${humanSelection}`
+      );
+      computerScore++;
+    }
+    //if human chose Paper --------------------
+  } else if (humanSelection === "Paper") {
+    if (computerSelection === "Paper") {
+      console.log(`A TIE both of you chose ${humanSelection}`);
+    } else if (computerSelection === "Rock") {
+      console.log(
+        `You WON!!, the computer chose ${computerSelection} and you ${humanSelection}`
+      );
+      humanScore++;
+    } else {
+      console.log(
+        `You lost, the computer chose ${computerSelection} and you ${humanSelection}`
+      );
+      computerScore++;
+    }
+    // If human chose scissors --------------------
+  } else if (humanSelection === "Scissors") {
+    if (computerSelection === "Scissors") {
+      console.log(`A TIE both of you chose ${humanSelection}`);
     } else if (computerSelection === "Paper") {
       console.log(
         `You WON!!, the computer chose ${computerSelection} and you ${humanSelection}`
       );
       humanScore++;
     } else {
-    }
-    //if human chose Paper --------------------
-  } else if (humanSelection === "Paper") {
-    if (computerSelection === "Paper") {
-      console.log(`A TIE both of you chose ${humanSelection}`);
-    } else if (computerSelection === "") {
-    } else {
-    }
-    // If human chose scissors --------------------
-  } else if (humanSelection === "Scissors") {
-    if (computerSelection === "Scissors") {
-      console.log(`A TIE both of you chose ${humanSelection}`);
-    } else if (computerSelection === "") {
-    } else {
+      console.log(
+        `You lost, the computer chose ${computerSelection} and you ${humanSelection}`
+      );
+      computerScore++;
     }
   }
 }
