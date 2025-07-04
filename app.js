@@ -1,7 +1,11 @@
-// Variables Scores
+// app.js
+// A ROCK-PAPER-SCISSORS game played in te console
+
+// === Global Variables ===
 let computerScore = 0;
 let humanScore = 0;
-let round = 0;
+
+// === Functions ===
 
 // The Logic Behind the computer choice
 
@@ -98,4 +102,21 @@ function playRound() {
 
 // Write the logic to play the entire Game for 5 times
 
-function playGame() {}
+function playGame() {
+  let winner;
+  for (let i = 0; i < 5; ++i) {
+    playRound();
+  }
+  if (humanScore > computerScore) {
+    winner = "Human Won";
+  } else if (computerScore > humanScore) {
+    winner = "Computer Won";
+  } else {
+    winner = "A TIE";
+  }
+  console.log(`And the result is: ${winner}
+    Human Score: ${humanScore}
+    Computer Score: ${computerScore}`);
+}
+
+playGame();
