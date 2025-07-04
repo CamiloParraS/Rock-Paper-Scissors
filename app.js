@@ -1,6 +1,7 @@
 // Variables Scores
 let computerScore = 0;
 let humanScore = 0;
+let round = 0;
 
 // The Logic Behind the computer choice
 
@@ -44,3 +45,27 @@ function getHumanChoice() {
   return humanChoice;
 }
 getHumanChoice();
+
+function playRound(computerChoice, humanChoice) {
+  round++;
+  if (humanChoice === "Rock") {
+    if (computerChoice === "Rock") {
+      console.log("It's a Tie!");
+    } else if (computerChoice === "Scissors") {
+      console.log(`You won!!`);
+      playerScore++;
+    } else {
+      console.log("You Lose!!");
+      computerScore++;
+    }
+  }
+  if (humanChoice === "") {
+  }
+  if (computerChoice === "") {
+  }
+}
+
+const computerSelection = getComputerChoice();
+const humanSelection = getHumanChoice();
+
+playRound(computerSelection, humanSelection);
