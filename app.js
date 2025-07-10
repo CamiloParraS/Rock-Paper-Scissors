@@ -104,30 +104,14 @@ function playRound() {
   console.log("----------------------------------------------------");
 }
 
-// Plays a game round 5 times, calculates whowon after 5 rounds, and declares a final winner
-function playGame() {
-  let winner;
-  console.log("Starting a new game of Rock, Paper, Scissors!");
-  console.log("---------------------------------");
-
-  // play 5 rounds of the game
-  for (let i = 0; i < 5; ++i) {
-    playRound();
-  }
-
-  // Determines the winner after playing the game for 5 rounds
-  if (humanScore > computerScore) {
-    winner = "Human Won";
-  } else if (computerScore > humanScore) {
-    winner = "Computer Won";
-  } else {
-    winner = "A TIE";
-  }
-  // Shows the final Results
-  console.log("--- GAME OVER ---");
-  console.log(`Final Result: ${winner}`);
-  console.log(`Final Score -> You: ${humanScore} | Computer: ${computerScore}`);
-}
 
 // starts the game when the page is loaded
 playGame();
+
+// ========== EVENT LISTENERS ==========
+playGame();
+
+const rockButton = document.querySelector("#rock");
+const paperButton = document.querySelector("#paper");
+const scissorsButton = document.querySelector("#scissors");
+
