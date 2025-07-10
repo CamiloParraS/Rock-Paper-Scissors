@@ -5,6 +5,14 @@
 let computerScore = 0;
 let humanScore = 0;
 
+// ========== DOM ELEMENTS ==========
+
+const rockButton = document.querySelector("#rock");
+const paperButton = document.querySelector("#paper");
+const scissorsButton = document.querySelector("#scissors");
+const htmlHumanScore = document.querySelector("#human-score");
+const htmlComputerScore = document.querySelector("#bot-score");
+
 // ========== FUNCTIONS ==========
 
 // Generates a random choice for the computer
@@ -79,16 +87,13 @@ function playRound(humanSelection) {
       computerScore++;
     }
   }
+  // we update the values in the DOM
+  htmlHumanScore.textContent = humanScore;
+  htmlComputerScore.textContent = computerScore;
   console.log("----------------------------------------------------");
 }
 
-// starts the game when the page is loaded
-
 // ========== EVENT LISTENERS ==========
-
-const rockButton = document.querySelector("#rock");
-const paperButton = document.querySelector("#paper");
-const scissorsButton = document.querySelector("#scissors");
 
 rockButton.addEventListener("click", () => {
   playRound("Rock");
@@ -101,3 +106,8 @@ paperButton.addEventListener("click", () => {
 scissorsButton.addEventListener("click", () => {
   playRound("Scissors");
 });
+
+// ========== STARTING VALUES ==========
+// Load the Score Values to the Page
+htmlHumanScore.textContent = humanScore;
+htmlComputerScore.textContent = computerScore;
