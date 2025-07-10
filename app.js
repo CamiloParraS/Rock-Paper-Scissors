@@ -4,6 +4,7 @@
 // ========== GLOBAL VARIABLES ==========
 let computerScore = 0;
 let humanScore = 0;
+let round = 0;
 
 // ========== DOM ELEMENTS ==========
 
@@ -12,6 +13,7 @@ const paperButton = document.querySelector("#paper");
 const scissorsButton = document.querySelector("#scissors");
 const htmlHumanScore = document.querySelector("#human-score");
 const htmlComputerScore = document.querySelector("#bot-score");
+const results = document.querySelector("#game-result");
 
 // ========== FUNCTIONS ==========
 
@@ -41,57 +43,29 @@ function playRound(humanSelection) {
   const computerSelection = getComputerChoice();
   console.log(`You chose: ${humanSelection}`);
   console.log(`Computer chose: ${computerSelection}`);
-  // if Human chose Rock --------------------
-  if (humanSelection === "Rock") {
-    if (computerSelection === "Rock") {
-      console.log(`A TIE both of you chose ${humanSelection}`);
-    } else if (computerSelection === "Scissors") {
-      console.log(
-        `You WON!!, the computer chose ${computerSelection} and you ${humanSelection}`
-      );
-      humanScore++;
-    } else {
-      console.log(
-        `You lost, the computer chose ${computerSelection} and you ${humanSelection}`
-      );
-      computerScore++;
-    }
-    //if human chose Paper --------------------
-  } else if (humanSelection === "Paper") {
-    if (computerSelection === "Paper") {
-      console.log(`A TIE both of you chose ${humanSelection}`);
-    } else if (computerSelection === "Rock") {
-      console.log(
-        `You WON!!, the computer chose ${computerSelection} and you ${humanSelection}`
-      );
-      humanScore++;
-    } else {
-      console.log(
-        `You lost, the computer chose ${computerSelection} and you ${humanSelection}`
-      );
-      computerScore++;
-    }
-    // If human chose scissors --------------------
-  } else if (humanSelection === "Scissors") {
-    if (computerSelection === "Scissors") {
-      console.log(`A TIE both of you chose ${humanSelection}`);
-    } else if (computerSelection === "Paper") {
-      console.log(
-        `You WON!!, the computer chose ${computerSelection} and you ${humanSelection}`
-      );
-      humanScore++;
-    } else {
-      console.log(
-        `You lost, the computer chose ${computerSelection} and you ${humanSelection}`
-      );
-      computerScore++;
-    }
+
+  if (humanSelection === computerSelection) {
+    results.textContent = `A TIE both of you chose ${humanSelection}`;
+  } else if (
+    (humanSelection === "Rock" && computerSelection === "Scissors") ||
+    (humanSelection === "Paper" && computerSelection === "Rock") ||
+    (humanSelection === "Scissors" && computerSelection === "Paper")
+  ) {
+    results.textContent = `You WIN! ${humanSelection} beats ${computerSelection}`;
+    humanScore++;
+  } else {
+    results.textContent = `You LOST! ${computerSelection} beats ${humanSelection}`;
+    computerScore++;
   }
+  round++;
+
   // we update the values in the DOM
   htmlHumanScore.textContent = humanScore;
   htmlComputerScore.textContent = computerScore;
   console.log("----------------------------------------------------");
 }
+
+// announce winner after 5 rounds
 
 // ========== EVENT LISTENERS ==========
 

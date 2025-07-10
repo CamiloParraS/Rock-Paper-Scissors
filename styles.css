@@ -20,3 +20,10 @@ a {
 a:hover {
   border-bottom: 0;
 }
+
+#game-result {
+    border: #444444 1px solid;
+    border-radius: 5rem;
+    padding: 1rem;
+    margin: 1rem;
+}
