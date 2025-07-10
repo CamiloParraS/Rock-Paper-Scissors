@@ -28,33 +28,11 @@ function getComputerChoice() {
   return computerChoice;
 }
 
-// Prompts the user to enter their choice
-
-function getHumanChoice() {
-  let humanChoice;
-  // Prompt the user for input
-  let sign = prompt("Choose: 1 for Rock, 2 for Paper, 3 for Scissors");
-
-  // Convert the user's numeric input into the corresponding Rock, Paper, or Scissors choice
-  switch (sign) {
-    case "1":
-      humanChoice = "Rock";
-      break;
-    case "2":
-      humanChoice = "Paper";
-      break;
-    case "3":
-      humanChoice = "Scissors";
-      break;
-  }
-  console.log(`Human choice: ${humanChoice}`);
-  return humanChoice;
-}
-
 // Plays a Round of paper rock scissors,compares the result and updates the Scores
-function playRound() {
-  let computerSelection = getComputerChoice();
-  let humanSelection = getHumanChoice();
+function playRound(humanSelection) {
+  const computerSelection = getComputerChoice();
+  console.log(`You chose: ${humanSelection}`);
+  console.log(`Computer chose: ${computerSelection}`);
   // if Human chose Rock --------------------
   if (humanSelection === "Rock") {
     if (computerSelection === "Rock") {
@@ -104,14 +82,22 @@ function playRound() {
   console.log("----------------------------------------------------");
 }
 
-
 // starts the game when the page is loaded
-playGame();
 
 // ========== EVENT LISTENERS ==========
-playGame();
 
 const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
 const scissorsButton = document.querySelector("#scissors");
 
+rockButton.addEventListener("click", () => {
+  playRound("Rock");
+});
+
+paperButton.addEventListener("click", () => {
+  playRound("Paper");
+});
+
+scissorsButton.addEventListener("click", () => {
+  playRound("Scissors");
+});
