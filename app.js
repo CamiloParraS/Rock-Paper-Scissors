@@ -21,22 +21,10 @@ const htmlRound = document.querySelector("#round");
 // Generates a random choice for the computer
 
 function getComputerChoice() {
-  let computerChoice;
-  // Generate a random number between 1 and 3
-  let randomNumber = Math.floor(Math.random() * 3) + 1;
-  switch (randomNumber) {
-    // assign a choice based on the random number
-    case 1:
-      computerChoice = "Rock";
-      break;
-    case 2:
-      computerChoice = "Paper";
-      break;
-    case 3:
-      computerChoice = "Scissors";
-      break;
-  }
-  return computerChoice;
+  // we Create an array for te available choices
+  const choices = ["Rock", "Paper", "Scissors"];
+  const randomIndex = Math.floor(Math.random() * choices.length);
+  return choices[randomIndex];
 }
 
 // Plays a Round of paper rock scissors, Compares the result and updates the scores and the html
