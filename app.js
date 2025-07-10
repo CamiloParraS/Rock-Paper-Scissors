@@ -14,6 +14,7 @@ const scissorsButton = document.querySelector("#scissors");
 const htmlHumanScore = document.querySelector("#human-score");
 const htmlComputerScore = document.querySelector("#bot-score");
 const results = document.querySelector("#game-result");
+const htmlRound = document.querySelector("#round");
 
 // ========== FUNCTIONS ==========
 
@@ -60,9 +61,9 @@ function playRound(humanSelection) {
   round++;
 
   // we update the values in the DOM
+  htmlRound.textContent = round;
   htmlHumanScore.textContent = humanScore;
   htmlComputerScore.textContent = computerScore;
-  console.log("----------------------------------------------------");
 }
 
 // announce winner after 5 rounds
@@ -85,3 +86,4 @@ scissorsButton.addEventListener("click", () => {
 // Load the Score Values to the Page
 htmlHumanScore.textContent = humanScore;
 htmlComputerScore.textContent = computerScore;
+htmlRound.textContent = round;
