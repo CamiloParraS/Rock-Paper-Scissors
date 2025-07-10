@@ -39,7 +39,7 @@ function getComputerChoice() {
   return computerChoice;
 }
 
-// Plays a Round of paper rock scissors,compares the result and updates the Scores
+// Plays a Round of paper rock scissors, Compares the result and updates the scores and the html
 function playRound(humanSelection) {
   const computerSelection = getComputerChoice();
   console.log(`You chose: ${humanSelection}`);
@@ -60,13 +60,33 @@ function playRound(humanSelection) {
   }
   round++;
 
+  // We check if there is a winner
+  if (humanScore === 5 || computerScore === 5) {
+    declareWinner();
+  }
+
   // we update the values in the DOM
   htmlRound.textContent = round;
   htmlHumanScore.textContent = humanScore;
   htmlComputerScore.textContent = computerScore;
 }
 
-// announce winner after 5 rounds
+// Declares a Winner after the player or the computer reaches 5 points
+function declareWinner() {
+  // Disable the buttons to prevent further play
+  rockButton.disabled = true;
+  paperButton.disabled = true;
+  scissorsButton.disabled = true;
+
+  // Announce the final result
+  if (humanScore > computerScore) {
+    results.textContent = `Game Over! You won the match ${humanScore} to ${computerScore}!`;
+  } else if (computerScore > humanScore) {
+    results.textContent = `Game Over! The computer won the match ${computerScore} to ${humanScore}!`;
+  } else {
+    results.textContent = `Game Over! It's a tie! ${humanScore} to ${computerScore}.`;
+  }
+}
 
 // ========== EVENT LISTENERS ==========
 
